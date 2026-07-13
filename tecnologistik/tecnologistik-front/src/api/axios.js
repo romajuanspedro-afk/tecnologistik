@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// En local usa el backend en 8080. En producción, definir
-// VITE_API_URL en las variables de entorno de Vercel
-// apuntando a la URL pública del backend en Railway.
-// Ejemplo: https://tu-proyecto-prod-up.railway.app
+// Debugging: Verifica qué URL está usando
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+console.log('🔗 API URL configurada:', apiUrl);
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080',
+  baseURL: apiUrl,
   headers: {
     'Content-Type': 'application/json'
   }
